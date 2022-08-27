@@ -122,7 +122,7 @@ class _SelectGameState extends State<SelectGame> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "${widget.questionAndAnswers.length - questionNumbers.length + 1} / ${widget.questionAndAnswers.length}問目",
+              "${widget.questionAndAnswers.length - questionNumbers.length + 1} / ${widget.questionAndAnswers.length} 問目",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 16
