@@ -119,13 +119,18 @@ class _SelectGameState extends State<SelectGame> {
           color: ColorTable.primaryNaturalColor,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              margin: const EdgeInsets.all(30),
+              margin: const EdgeInsets.all(20),
               child: Text(
                 widget.questionAndAnswers[currentQuestionNumber]["question"],
-                style: const TextStyle(fontSize: 20, color: Colors.black)
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  height: 1.5,
+                  letterSpacing: 1,
+                )
               ),
             ),
 
@@ -231,7 +236,7 @@ class ResultDialog extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(resultImage),
+        Image.asset(resultImage, width: 200, height: 200),
         Container(
           margin: const EdgeInsets.all(20),
           padding: const EdgeInsets.all(20),
