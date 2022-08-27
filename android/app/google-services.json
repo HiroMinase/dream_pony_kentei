@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "923613748771",
+    "project_id": "dream-pony-kentei",
+    "storage_bucket": "dream-pony-kentei.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923613748771:android:f100195e3f84a3ee331b96",
+        "android_client_info": {
+          "package_name": "art.minasehiro.dream_pony_kentei"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923613748771-634oo8ff2nrktao6su6imgjiohlnshdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxfS5QiRrK9sUD2yD6QaFD4WZ7PMLwvBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923613748771-634oo8ff2nrktao6su6imgjiohlnshdu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "923613748771-tsm4qh6500trf00jdm8f7hap180q08br.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "art.minasehiro.studyPony"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
