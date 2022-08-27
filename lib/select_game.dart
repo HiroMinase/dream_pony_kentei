@@ -246,16 +246,18 @@ class ResultDialog extends StatelessWidget {
       children: [
         Image.asset(resultImage, width: 200, height: 200),
         Container(
-          margin: const EdgeInsets.all(20),
-          padding: const EdgeInsets.all(20),
+          height: MediaQuery.of(context).size.height / 3,
+          margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             color: ColorTable.primaryNaturalColor,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 30),
                 child: Text(
                   "正解: $answer",
                   style: TextStyle(
@@ -278,7 +280,7 @@ class ResultDialog extends StatelessWidget {
               ),
             ]
           ),
-        )
+        ),
       ],
     );
   }
