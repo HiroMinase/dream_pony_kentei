@@ -130,7 +130,7 @@ class _SelectGameState extends State<SelectGame> {
             ),
 
             Container(
-              margin: const EdgeInsets.all(20),
+              margin: const EdgeInsets.symmetric(horizontal: 30),
               child: Text(
                 widget.questionAndAnswers[currentQuestionNumber]["question"],
                 style: const TextStyle(
