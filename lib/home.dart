@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         elevation: 0.5,
         automaticallyImplyLeading: false,
-        backgroundColor: ColorTable.primaryNaturalColor,
+        backgroundColor: ColorTable.primaryBackgroundColor,
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -85,9 +85,9 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.only(bottom: 20),
+                margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 child: const Text(
-                  "TBS 火曜ドラマ「ユニコーンに乗って」にまつわる、さまざまな難易度の問題を用意しました。\n全問正解できるかな？",
+                  "TBS 火曜ドラマ「ユニコーンに乗って」にまつわる、さまざまな難易度の問題を用意しました。\n\n全問正解できるかな？",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -143,7 +143,7 @@ class ExaminationNav extends StatelessWidget {
             title,
             style: TextStyle(
               letterSpacing: 1.5,
-              fontSize: 22,
+              fontSize: 20,
               color: Theme.of(context).colorScheme.secondary,
             )
           )
