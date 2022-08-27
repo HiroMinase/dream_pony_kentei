@@ -121,6 +121,14 @@ class _SelectGameState extends State<SelectGame> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Text(
+              "${widget.questionAndAnswers.length - questionNumbers.length + 1} / ${widget.questionAndAnswers.length}問目",
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 16
+              ),
+            ),
+
             Container(
               margin: const EdgeInsets.all(20),
               child: Text(
