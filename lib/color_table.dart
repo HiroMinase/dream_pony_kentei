@@ -36,6 +36,23 @@ class ColorTable {
     },
   );
 
+  static const int _primaryBackgroundValue = 0xFFECDFC8;
+  static const MaterialColor primaryBackgroundColor = MaterialColor(
+    _primaryBackgroundValue,
+    <int, Color>{
+      50: Color(0xFF0285d3),
+      100: Color(0xFF0279c0),
+      200: Color(0xFF026dac),
+      300: Color(0xFF016199),
+      400: Color(0xFF015485),
+      500: Color(_primaryBackgroundValue),
+      600: Color(0xFF013c5f),
+      700: Color(0xFF012f4b),
+      800: Color(0xFF002338),
+      900: Color(0xFF001724),
+    },
+  );
+
   static const int _primaryNaturalValue = 0xFFFCF8E8;
   static const MaterialColor primaryNaturalColor = MaterialColor(
     _primaryNaturalValue,

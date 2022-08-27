@@ -54,7 +54,7 @@ class _SelectGameState extends State<SelectGame> {
 
     _timer = Timer(
       const Duration(seconds: 2),
-          () {
+      () {
         Navigator.pop(context);
       },
     );
@@ -106,11 +106,11 @@ class _SelectGameState extends State<SelectGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title, style: const TextStyle(fontSize: 18)),
         centerTitle: true,
         elevation: 0.5,
         automaticallyImplyLeading: false,
-        backgroundColor: ColorTable.primaryNaturalColor,
+        backgroundColor: ColorTable.primaryBackgroundColor,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -121,14 +121,6 @@ class _SelectGameState extends State<SelectGame> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "正解数\n${correctAnswersCount.toString()} / ${widget.questionAndAnswers.length}",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 16
-              ),
-            ),
-
             const Text("正しいものを選んでね！", style: TextStyle(fontSize: 16)),
 
             Container(
@@ -260,6 +252,7 @@ class ResultDialog extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.secondary,
                     decoration: TextDecoration.none,
+                    letterSpacing: 1.5,
                   ),
                 ),
               ),
