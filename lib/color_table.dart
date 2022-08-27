@@ -19,7 +19,7 @@ class ColorTable {
     },
   );
 
-  static const int _primaryBlackValue = 0xFF2B2B2B;
+  static const int _primaryBlackValue = 0xFF29383F;
   static const MaterialColor primaryBlackColor = MaterialColor(
     _primaryBlackValue,
     <int, Color>{
@@ -36,16 +36,16 @@ class ColorTable {
     },
   );
 
-  static const int _primaryBackgroundValue = 0xFFECDFC8;
-  static const MaterialColor primaryBackgroundColor = MaterialColor(
-    _primaryBackgroundValue,
+  static const int _gradientBeginValue = 0xFFFA73FF;
+  static const MaterialColor gradientBeginColor = MaterialColor(
+    _gradientBeginValue,
     <int, Color>{
       50: Color(0xFF0285d3),
       100: Color(0xFF0279c0),
       200: Color(0xFF026dac),
       300: Color(0xFF016199),
       400: Color(0xFF015485),
-      500: Color(_primaryBackgroundValue),
+      500: Color(_gradientBeginValue),
       600: Color(0xFF013c5f),
       700: Color(0xFF012f4b),
       800: Color(0xFF002338),
@@ -53,16 +53,16 @@ class ColorTable {
     },
   );
 
-  static const int _primaryNaturalValue = 0xFFFCF8E8;
-  static const MaterialColor primaryNaturalColor = MaterialColor(
-    _primaryNaturalValue,
+  static const int _gradientEndValue = 0xFF70F3F1;
+  static const MaterialColor gradientEndColor = MaterialColor(
+    _gradientEndValue,
     <int, Color>{
       50: Color(0xFF0285d3),
       100: Color(0xFF0279c0),
       200: Color(0xFF026dac),
       300: Color(0xFF016199),
       400: Color(0xFF015485),
-      500: Color(_primaryNaturalValue),
+      500: Color(_gradientEndValue),
       600: Color(0xFF013c5f),
       700: Color(0xFF012f4b),
       800: Color(0xFF002338),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:dream_pony_kentei/custom_box_shadow.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -105,86 +107,97 @@ class _SelectGameState extends State<SelectGame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title, style: const TextStyle(fontSize: 16)),
-        centerTitle: true,
-        elevation: 0.5,
-        automaticallyImplyLeading: false,
-        backgroundColor: ColorTable.primaryBackgroundColor,
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          color: ColorTable.primaryNaturalColor,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              "${widget.questionAndAnswers.length - questionNumbers.length + 1} / ${widget.questionAndAnswers.length} 問目",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 16
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: const Alignment(-1.6, -0.1),
+                end: const Alignment(1.4, 0.8),
+                stops: const [0.2, 0.7],
+                colors: [
+                  ColorTable.gradientBeginColor.withOpacity(0.4),
+                  ColorTable.gradientEndColor.withOpacity(0.4),
+                ],
               ),
             ),
-
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30),
-              child: Text(
-                widget.questionAndAnswers[currentQuestionNumber]["question"],
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  height: 1.5,
-                  letterSpacing: 1,
-                )
-              ),
-            ),
-
-            ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(), // スクロールさせない
-              itemCount: widget.questionAndAnswers[currentQuestionNumber]["choices"].length,
-              itemBuilder: (BuildContext context, int i) {
-                return choiceTile(widget.questionAndAnswers[currentQuestionNumber]["choices"][i]);
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          ),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 500, sigmaY: 500),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(10),
-                    width: MediaQuery.of(context).size.width / 2,
-                    height: MediaQuery.of(context).size.width / 10,
-                    decoration: BoxDecoration(
-                      color: ColorTable.primaryNaturalColor,
-                      border: Border.all(
-                        color: Colors.grey,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "トップへ戻る",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey
-                        )
-                      )
+                Text(
+                  "${widget.questionAndAnswers.length - questionNumbers.length + 1} / ${widget.questionAndAnswers.length} 問目",
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: ColorTable.primaryBlackColor,
+                  ),
+                ),
+
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text(
+                    widget.questionAndAnswers[currentQuestionNumber]["question"],
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: ColorTable.primaryBlackColor,
+                      height: 1.5,
+                      letterSpacing: 1,
                     )
                   ),
+                ),
+
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(), // スクロールさせない
+                  itemCount: widget.questionAndAnswers[currentQuestionNumber]["choices"].length,
+                  itemBuilder: (BuildContext context, int i) {
+                    return choiceTile(widget.questionAndAnswers[currentQuestionNumber]["choices"][i]);
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(10),
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: MediaQuery.of(context).size.width / 10,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          border: Border.all(
+                            color: ColorTable.primaryBlackColor.withOpacity(0.5),
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "トップへ戻る",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: ColorTable.primaryBlackColor.withOpacity(0.5),
+                            )
+                          )
+                        )
+                      ),
+                    )
+                  ]
                 )
-              ]
-            )
-          ],
-        ),
+              ],
+            ),
+          ),
+        ]
       ),
     );
   }
@@ -199,11 +212,15 @@ class _SelectGameState extends State<SelectGame> {
         margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         height: MediaQuery.of(context).size.width / 8,
         decoration: BoxDecoration(
-          color: ColorTable.primaryNaturalColor,
+          color: Colors.white.withOpacity(0.5),
+          border: Border.all(
+            color: Colors.white,
+            width: 0.8,
+          ),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             CustomBoxShadow(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.white.withOpacity(0.5),
               offset: const Offset(1.0, 1.0),
               blurRadius: 3.0,
               blurStyle: BlurStyle.outer
@@ -215,7 +232,8 @@ class _SelectGameState extends State<SelectGame> {
             choice,
             style: const TextStyle(
               fontSize: 16,
-              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              color: ColorTable.primaryBlackColor,
               letterSpacing: 1.5,
             )
           )
@@ -250,7 +268,7 @@ class ResultDialog extends StatelessWidget {
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
-            color: ColorTable.primaryNaturalColor,
+            color: ColorTable.primaryWhiteColor,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(

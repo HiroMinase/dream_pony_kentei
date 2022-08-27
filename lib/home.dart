@@ -1,5 +1,6 @@
 // CORE
 import 'dart:core';
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,7 @@ import 'package:dream_pony_kentei/select_game.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'color_table.dart';
+import 'custom_box_shadow.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -69,37 +71,77 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ドリポニ検定", style: TextStyle(fontSize: 18)),
-        centerTitle: true,
-        elevation: 0.5,
-        automaticallyImplyLeading: false,
-        backgroundColor: ColorTable.primaryBackgroundColor,
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          color: ColorTable.primaryNaturalColor,
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                child: const Text(
-                  "TBS 火曜ドラマ「ユニコーンに乗って」にまつわる、さまざまな難易度の問題を用意しました。\n\n全問正解できるかな？",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    letterSpacing: 1,
+      // 透明なAppbar
+      // extendBodyBehindAppBar: true,
+      // appBar: AppBar(
+      //   title: const Text("ドリポニ検定", style: TextStyle(fontSize: 18)),
+      //   centerTitle: true,
+      //   elevation: 0,
+      //   backgroundColor: Colors.transparent,
+      // ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: const Alignment(-1.6, -0.1),
+                end: const Alignment(1.4, 0.8),
+                stops: const [0.2, 0.7],
+                colors: [
+                  ColorTable.gradientBeginColor.withOpacity(0.4),
+                  ColorTable.gradientEndColor.withOpacity(0.4),
+                ],
+              ),
+            ),
+          ),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 500, sigmaY: 500),
+            // child: Container(
+            //   decoration: BoxDecoration(
+            //     color: Colors.white.withOpacity(0.4),
+            //   ),
+            // ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.3),
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 0.8,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: const [
+                      CustomBoxShadow(
+                        color: Colors.white,
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 0.5,
+                        blurStyle: BlurStyle.outer
+                      ),
+                    ],
+                  ),
+                  child: const Text(
+                    "「ユニコーンに乗って」に関わる\nさまざまな問題を用意しました。\n\n全問正解できるかな？",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: ColorTable.primaryBlackColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
                   ),
                 ),
-              ),
-              Image.asset("assets/images/unicorn.png", width: 200, height: 200),
-              ExaminationNav(title: "ドリポニ検定に挑戦！", questionAndAnswers: randomlySelect(questionAndAnswersList, 10)),
-            ]
+                Image.asset("assets/images/unicorn.png", width: 200, height: 200),
+                ExaminationNav(title: "ドリポニ検定に挑戦！", questionAndAnswers: randomlySelect(questionAndAnswersList, 10)),
+              ]
+            ),
           ),
-        ),
+        ]
       ),
     );
   }
@@ -131,20 +173,29 @@ class ExaminationNav extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.8,
         height: MediaQuery.of(context).size.width* 0.15,
         decoration: BoxDecoration(
-          color: ColorTable.primaryNaturalColor,
+          color: Colors.white.withOpacity(0.3),
           border: Border.all(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Colors.white,
             width: 1.0,
           ),
           borderRadius: BorderRadius.circular(10),
+          boxShadow: const [
+            CustomBoxShadow(
+              color: Colors.white,
+              offset: Offset(1.0, 1.0),
+              blurRadius: 0.5,
+              blurStyle: BlurStyle.outer
+            ),
+          ],
         ),
         child: Center(
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               letterSpacing: 1.5,
               fontSize: 20,
-              color: Theme.of(context).colorScheme.secondary,
+              fontWeight: FontWeight.bold,
+              color: ColorTable.primaryBlackColor,
             )
           )
         )
