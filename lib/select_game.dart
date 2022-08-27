@@ -106,7 +106,7 @@ class _SelectGameState extends State<SelectGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title, style: const TextStyle(fontSize: 18)),
+        title: Text(widget.title, style: const TextStyle(fontSize: 16)),
         centerTitle: true,
         elevation: 0.5,
         automaticallyImplyLeading: false,
@@ -121,8 +121,6 @@ class _SelectGameState extends State<SelectGame> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("正しいものを選んでね！", style: TextStyle(fontSize: 16)),
-
             Container(
               margin: const EdgeInsets.all(30),
               child: Text(
