@@ -36,6 +36,7 @@ class _HomeState extends State<Home> {
 
     // question = String
     // answer = String
+    // explanationOfAnswer = String
     // choices = List<String>
 
     setState(() {
@@ -52,13 +53,16 @@ class _HomeState extends State<Home> {
     });
   }
 
-  // 問題をランダムに選抜
+  // 問題Listからランダムに num個 選ぶ
   List<dynamic> randomlySelect(List<dynamic> array, int num) {
+    array.shuffle();
+
+    // 求められた個数に満たない場合
     if (array.length < num) {
-      array.shuffle();
       return array;
     }
-    array.shuffle();
+
+    // 先頭から num個 切り出す
     return array.sublist(0, num);
   }
 
