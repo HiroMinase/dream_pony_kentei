@@ -68,113 +68,106 @@ class _ResultState extends State<Result> {
           ),
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 30),
                   child: Column(
                     children: [
-                      Column(
-                        children: [
-                          const Text(
-                            "\\ 結果発表 /",
-                            style: TextStyle(
-                              fontSize: 24,
-                            ),
-                          ),
-                          Image.asset("assets/images/unicorn.png", width: 120, height: 120),
-                        ]
+                      const Text(
+                        "\\ 結果発表 /",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "ドリポニ検定",
-                            style: TextStyle(
-                              fontSize: 28,
-                            ),
-                          ),
-                          if (certifyingExaminationResult != "1級") Text(
-                            certifyingExaminationResult,
-                            style: const TextStyle(
-                              fontSize: 38,
-                              letterSpacing: 1,
-                            ),
-                          ),
-                          if (certifyingExaminationResult == "1級") Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Lottie.asset(
-                                'assets/lotties/trophy.json',
-                                width: 100,
-                                height: 100,
-                                repeat: false,
+                      Container(
+                        margin: const EdgeInsets.only(top: 50),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "ドリポニ検定",
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(
-                                certifyingExaminationResult,
-                                style: const TextStyle(
-                                  fontSize: 38,
-                                  letterSpacing: 1,
+                            ),
+                            if (certifyingExaminationResult != "1級") Text(
+                              certifyingExaminationResult,
+                              style: const TextStyle(
+                                fontSize: 38,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                            if (certifyingExaminationResult == "1級") Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Lottie.asset(
+                                  'assets/lotties/trophy.json',
+                                  width: 100,
+                                  height: 100,
+                                  repeat: false,
                                 ),
-                              ),
-                            ]
-                          ),
-                          const Text(
-                            "",
-                            style: TextStyle(
-                              fontSize: 28,
+                                Text(
+                                  certifyingExaminationResult,
+                                  style: const TextStyle(
+                                    fontSize: 38,
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ]
                             ),
-                          ),
-                        ]
+                          ]
+                        ),
                       ),
                     ]
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "正解数\n${widget.correctAnswersCount} / ${widget.questionCount}",
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 16
-                        ),
+                Lottie.asset('assets/lotties/unicorn.json', repeat: false),
+                Column(
+                  children: [
+                    Text(
+                      "正解数\n${widget.correctAnswersCount} / ${widget.questionCount}",
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 16
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (BuildContext context) => const Home(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 3,
-                          height: MediaQuery.of(context).size.width / 10,
-                          margin: const EdgeInsets.symmetric(vertical: 20),
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            border: Border.all(
-                              color: ColorTable.primaryBlackColor.withOpacity(0.8),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (BuildContext context) => const Home(),
                           ),
-                          child: Center(
-                            child: Text(
-                              "トップへ戻る",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: ColorTable.primaryBlackColor.withOpacity(0.8),
-                              )
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 3,
+                        height: MediaQuery.of(context).size.width / 10,
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          border: Border.all(
+                            color: ColorTable.primaryBlackColor.withOpacity(0.8),
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "トップへ戻る",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: ColorTable.primaryBlackColor.withOpacity(0.8),
                             )
                           )
-                        ),
+                        )
                       ),
-                    ]
-                  ),
+                    ),
+                  ]
                 ),
               ],
             ),

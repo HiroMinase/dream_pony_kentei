@@ -74,7 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.asset('assets/lotties/unicorn.json'),
+                Lottie.asset('assets/lotties/unicorn.json', repeat: false),
                 Text(
                   "ドリポニ検定",
                   style: TextStyle(

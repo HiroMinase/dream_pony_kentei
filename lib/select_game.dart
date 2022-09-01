@@ -176,17 +176,17 @@ class _SelectGameState extends State<SelectGame> {
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                           border: Border.all(
-                            color: ColorTable.primaryBlackColor.withOpacity(0.5),
+                            color: ColorTable.primaryBlackColor.withOpacity(0.8),
                             width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Center(
                           child: Text(
                             "トップへ戻る",
                             style: TextStyle(
                               fontSize: 16,
-                              color: ColorTable.primaryBlackColor.withOpacity(0.5),
+                              color: ColorTable.primaryBlackColor.withOpacity(0.8),
                             )
                           )
                         )
@@ -212,12 +212,12 @@ class _SelectGameState extends State<SelectGame> {
         margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         height: MediaQuery.of(context).size.width / 8,
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.5),
+          color: Colors.white.withOpacity(0.4),
           border: Border.all(
             color: Colors.white,
             width: 0.8,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
           boxShadow: [
             CustomBoxShadow(
               color: Colors.white.withOpacity(0.5),
@@ -271,32 +271,35 @@ class ResultDialog extends StatelessWidget {
             color: ColorTable.primaryWhiteColor,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.only(bottom: 30),
-                child: Text(
-                  "正解: $answer",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.secondary,
-                    decoration: TextDecoration.none,
-                    letterSpacing: 1.5,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 30),
+                  child: Text(
+                    "正解: $answer",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.secondary,
+                      decoration: TextDecoration.none,
+                      letterSpacing: 1.5,
+                    ),
                   ),
                 ),
-              ),
-              Text(
-                explanationOfAnswer,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
-                  fontSize: 16,
-                  letterSpacing: 1.5,
-                  decoration: TextDecoration.none,
+                Text(
+                  explanationOfAnswer,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontSize: 16,
+                    letterSpacing: 1.5,
+                    height: 2.0,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
-              ),
-            ]
+              ]
+            ),
           ),
         ),
       ],

@@ -9,6 +9,7 @@ import 'package:dream_pony_kentei/select_game.dart';
 
 // Firestore
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lottie/lottie.dart';
 
 import 'color_table.dart';
 import 'custom_box_shadow.dart';
@@ -107,15 +108,14 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(30),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.4),
                     border: Border.all(
                       color: Colors.white,
                       width: 0.8,
                     ),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(5),
                     boxShadow: const [
                       CustomBoxShadow(
                         color: Colors.white,
@@ -132,11 +132,12 @@ class _HomeState extends State<Home> {
                       color: ColorTable.primaryBlackColor,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      height: 1.5,
                       letterSpacing: 1,
                     ),
                   ),
                 ),
-                Image.asset("assets/images/unicorn.png", width: 200, height: 200),
+                Lottie.asset('assets/lotties/unicorn.json', repeat: false),
                 ExaminationNav(title: "ドリポニ検定に挑戦！", questionAndAnswers: randomlySelect(questionAndAnswersList, 10)),
               ]
             ),
@@ -178,7 +179,7 @@ class ExaminationNav extends StatelessWidget {
             color: Colors.white,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
           boxShadow: const [
             CustomBoxShadow(
               color: Colors.white,
